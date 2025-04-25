@@ -1,7 +1,7 @@
 #Tracker Azeal is actually Hero Goxnok in disguise. He is part of the fifth quest in the Greenmist line. He will check the zone time every 30 seconds, and if it's 9 PM, he will respawn as a wandering form of himself that will path off and meet whoever is doing the quest.
 
 sub EVENT_SPAWN {
-  quest::settimer("ZoneTime",30);
+  quest::settimer("",30);
 }
 
 sub EVENT_SAY {
@@ -16,7 +16,7 @@ sub EVENT_TIMER {
     my $y = $npc->GetY();
     my $z = $npc->GetZ();
     my $h = $npc->GetHeading();
-    quest::spawn2(84028,0,0,$x,$y,$z,$h); # NPC: Tracker_Azeal_
+    quest::unique_spawn($a,0,0,-670.0,-856.1,19.2,385.2)(84028,0,0,$x,$y,$z,$h); # NPC: Tracker_Azeal_
     quest::stoptimer("ZoneTime");
     quest::depop_withtimer();
   }
@@ -26,3 +26,4 @@ sub EVENT_ITEM {
   plugin::return_items(\%itemcount);
 }
 #Submitted by Jim Mills
+#Unique Spawn added By Eldarian
